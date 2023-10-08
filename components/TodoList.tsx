@@ -20,7 +20,7 @@ export default function TodoList({ tareas, eliminarTarea, marcarDone }: any) {
   }, [tareas]);
   return (
     <ul className="todo-list">
-      {tareas.map((tarea, i) => (
+      {tareas.map((tarea: any, i: any) => (
         <li
           key={i}
           className={`todo-item ${i === newItemIndex ? "new-todo-item" : ""}`}

@@ -19,14 +19,14 @@ export default function Todo() {
     }
   };
 
-  const eliminarTarea = (index) => {
+  const eliminarTarea = (index: any) => {
     // Remove the task at the specified index
     const updatedTareas = [...tareas];
     updatedTareas.splice(index, 1);
     setTareas(updatedTareas);
   };
 
-  const marcarDone = (index) => {
+  const marcarDone = (index: any) => {
     const updatedTareas = [...tareas];
     updatedTareas[index].indexOf("✅")
       ? (updatedTareas[index] = "✅" + updatedTareas[index])
