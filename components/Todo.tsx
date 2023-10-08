@@ -36,9 +36,20 @@ export default function Todo() {
     // You can update the task status in your tasks array
   };
 
+  const handleKeyDown = (event: any) => {
+    if (event.key === "Enter") {
+      // Call your function here
+      agregarTarea();
+    }
+  };
+
   return (
     <div className="max-w-md mx-auto p-4 bg-white rounded shadow-md text-black">
-      <TodoInput onChange={handleInputValor} value={inputValor} />
+      <TodoInput
+        onChange={handleInputValor}
+        value={inputValor}
+        onPressEnter={handleKeyDown}
+      />
       <br />
       <TodoButton onAddTodo={agregarTarea} />
       <br />
