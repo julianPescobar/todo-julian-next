@@ -32,20 +32,11 @@ export default function Todo() {
   };
 
   const eliminarTarea = (index: any) => {
-    // Remove the task at the specified index
-    const updatedTareas = [...tareas];
-    updatedTareas.splice(index, 1);
-    setTareas(updatedTareas);
+    //Todo: make something that works with my new class
   };
 
   const marcarDone = (index: any) => {
-    const updatedTareas = [...tareas];
-    updatedTareas[index].indexOf("✅")
-      ? (updatedTareas[index] = "✅" + updatedTareas[index])
-      : "";
-    setTareas(updatedTareas);
-    // Implement the logic to mark a task as done here
-    // You can update the task status in your tasks array
+    //Todo: make something that works with my new class
   };
 
   const handleKeyDown = (event: any) => {
