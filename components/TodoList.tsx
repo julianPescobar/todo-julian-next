@@ -73,8 +73,8 @@ export function AnotherList({ tareas }: { tareas: Task[] }) {
     <div className="px-4 py-5 border-b rounded-t sm:px-6">
       <div className="overflow-hidden bg-white shadow dark:bg-gray-800 sm:rounded-md">
         <ul className="divide-y divide-gray-200">
-          {tareas.map((task: Task) => (
-            <li>
+          {tareas.map((task: Task, i: number) => (
+            <li key={i}>
               <a className="block hover:bg-gray-50 dark:hover:bg-gray-900">
                 <div className="px-4 py-4 sm:px-6">
                   <div className="flex items-center justify-between">
