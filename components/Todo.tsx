@@ -1,10 +1,12 @@
 import React from "react";
 import TodoButton from "./AddTodoButton";
 import TodoInput from "./AddTodoInput";
-import TodoList from "./TodoList";
+import TodoList, { AnotherList } from "./TodoList";
+import Task from "@/lib/Task";
+import { title } from "process";
 
 export default function Todo() {
-  const [tareas, setTareas] = React.useState<string[]>([]);
+  const [tareas, setTareas] = React.useState<Task[]>([]);
   const [inputValor, setInputValor] = React.useState<string>("");
 
   const handleInputValor = (e: {
@@ -14,7 +16,17 @@ export default function Todo() {
   };
   const agregarTarea = () => {
     if (inputValor.trim() !== "") {
-      setTareas([...tareas, inputValor]);
+      const nuevaTarea = new Task(
+        1,
+        inputValor,
+        "",
+        ["test", "tast"],
+        false,
+        false,
+        new Date()
+      );
+
+      setTareas([...tareas, nuevaTarea]);
       setInputValor("");
     }
   };
@@ -44,7 +56,7 @@ export default function Todo() {
   };
 
   return (
-    <div className="max-w-md mx-auto p-4 bg-white rounded shadow-md text-black">
+    <div className="max-w-lg mx-auto p-4 bg-gray-800 rounded shadow-md text-black">
       <TodoInput
         onChange={handleInputValor}
         value={inputValor}
@@ -53,11 +65,7 @@ export default function Todo() {
       <br />
       <TodoButton onAddTodo={agregarTarea} />
       <br />
-      <TodoList
-        tareas={tareas}
-        marcarDone={marcarDone}
-        eliminarTarea={eliminarTarea}
-      ></TodoList>
+      <AnotherList tareas={tareas}></AnotherList>
     </div>
   );
 }
