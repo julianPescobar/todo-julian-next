@@ -32,11 +32,16 @@ export default function Todo() {
   };
 
   const eliminarTarea = (index: any) => {
-    //Todo: make something that works with my new class
+    const updatedTareas = [...tareas];
+    updatedTareas.splice(index, 1);
+    setTareas(updatedTareas);
   };
 
   const marcarDone = (index: any) => {
-    //Todo: make something that works with my new class
+    const updatedTareas = [...tareas];
+    updatedTareas[index].completed = true;
+    updatedTareas[index].completedDate = new Date();
+    setTareas(updatedTareas);
   };
 
   const handleKeyDown = (event: any) => {
@@ -53,10 +58,12 @@ export default function Todo() {
         value={inputValor}
         onPressEnter={handleKeyDown}
       />
-      <br />
       <TodoButton onAddTodo={agregarTarea} />
-      <br />
-      <AnotherList tareas={tareas}></AnotherList>
+      <AnotherList
+        tareas={tareas}
+        eliminarTarea={eliminarTarea}
+        marcarDone={marcarDone}
+      ></AnotherList>
     </div>
   );
 }
